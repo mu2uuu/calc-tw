@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import DatePicker from "react-multi-date-picker";
+import "./App.css";
 
 function App() {
+  const today = new Date();
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate([today, tomorrow]));
+  const [values, setValues] = useState([today, tomorrow]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <DatePicker
+        sort={true}
+        multiple
+        value={values}
+        onChange={setValues}
+        format="D"
+      />
+    </>
   );
 }
 
