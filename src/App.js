@@ -1,8 +1,6 @@
 import { useState } from "react";
 import DatePicker from "react-multi-date-picker";
-import { Box, Container, Stack, Select, Center } from "@chakra-ui/react";
-import AppCss from "./App.css";
-import koyomi from "koyomi";
+import { Box, Stack, Select } from "@chakra-ui/react";
 import { Header } from "./header";
 
 function App() {
@@ -13,7 +11,6 @@ function App() {
   const today = new Date();
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate([today, tomorrow]));
-  const [values, setValues] = useState([today, tomorrow]);
 
   const [selectedMonth, setSelectedMonth] = useState([]);
   const [bizDay, setBizDay] = useState([]);
@@ -51,12 +48,15 @@ function App() {
         <Box>
           {selectedMonth}月の営業日は{bizDay}日です
         </Box>
+        <Box>
+          以下のインプットで押下するとカレンダーが表示されるので、日付を選択して下さい。
+          <br />
+          あとはコピペで。
+        </Box>
         <Box mt="3">
           <DatePicker
             sort={true}
             multiple
-            value={values}
-            onChange={setValues}
             format="D"
             style={{
               height: "40px",

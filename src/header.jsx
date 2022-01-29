@@ -8,7 +8,6 @@ export const Header = (props) => {
   const year = date.getFullYear();
   const { title } = props;
 
-
   return (
     <>
       <Helmet>
@@ -18,7 +17,9 @@ export const Header = (props) => {
           name="description"
           content="Web site created using create-react-app"
         />
-        <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+        <link rel="icon" href=".images/favicon64.ico" />
+        <link rel="apple-touch-icon" href=".images/favicon128.ico" sizes="180x180" />
+        <link rel="shortcut icon" href=".images/favicon128.ico" type="image/x-icon" />
         <title>{title}</title>
       </Helmet>
       <Center h={10} backgroundColor={"orange.100"}>
