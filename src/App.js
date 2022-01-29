@@ -3,18 +3,11 @@ import DatePicker from "react-multi-date-picker";
 import { Box, Container, Stack, Select, Center } from "@chakra-ui/react";
 import AppCss from "./App.css";
 import koyomi from "koyomi";
+import { Header } from "./header";
 
 function App() {
-  const containerStyle = {
-    height: "30px",
-  };
-
   // 営業日マップ
   const bizDayArray = [19, 18, 23, 20, 19, 22, 20, 22, 21, 20, 20, 22];
-
-  // 年を取得
-  const date = new Date();
-  const year = date.getFullYear();
 
   // react-multi-date-picker
   const today = new Date();
@@ -34,10 +27,7 @@ function App() {
   };
   return (
     <>
-      <Center h={10} backgroundColor={"orange.100"}>
-        {year}年テレワーク提出物のおもちゃ
-      </Center>
-
+      <Header title={"おもちゃ"} />
       <Stack spacing={"5"} align={"center"}>
         <Select
           mt="3"
