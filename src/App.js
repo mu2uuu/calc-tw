@@ -25,7 +25,14 @@ function App() {
   return (
     <>
       <Header title={"おもちゃ"} />
-      <Stack spacing={"5"} align={"center"} fontSize={"xl"}>
+      <Stack
+        spacing={"5"}
+        align={"center"}
+        fontSize={"xl"}
+        mt="3"
+        ml="3"
+        mr="3"
+      >
         <Select
           mt="3"
           placeholder="月を選択"
@@ -48,10 +55,14 @@ function App() {
         <Box>
           {selectedMonth}月の営業日は{bizDay}日です
         </Box>
-        <Box>
-          以下のインプットで押下するとカレンダーが表示されるので、日付を選択して下さい。
+        <Box
+          w={{ base: "sm", md: "2xl" }}
+          display={"flex"}
+          justifyContent={"center"}
+        >
+          以下の入力欄を押下するとカレンダーが表示されるので、
           <br />
-          あとはコピペで。
+          日付を選択して下さい。あとはコピペで。
         </Box>
         <Box mt="3">
           <DatePicker

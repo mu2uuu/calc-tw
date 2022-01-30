@@ -7,7 +7,7 @@ export const About = () => {
     <>
       <Header title={"あばうと"} />
       <Box display={"flex"} justifyContent={"center"} alignItems={"center"} fontSize={"xl"}>
-        <Box mt="3">
+        <Box mt="3" ml="3" mr="3">
           <Text>提出物書類用のおもちゃです(おもろくないですが、、)</Text>
           <Text>ほんの少しだけ、提出物の作成が楽になる、かも、です。</Text>
           <Text>

@@ -17,9 +17,9 @@ export const Header = (props) => {
           name="description"
           content="Web site created using create-react-app"
         />
-        <link rel="icon" href=".images/favicon64.ico" />
-        <link rel="apple-touch-icon" href=".images/favicon128.ico" sizes="180x180" />
-        <link rel="shortcut icon" href=".images/favicon128.ico" type="image/x-icon" />
+        <link rel="icon" href="./images/favicon64.ico" />
+        <link rel="apple-touch-icon" href="./images/favicon128.ico" sizes="180x180" />
+        <link rel="shortcut icon" href="./images/favicon128.ico" type="image/x-icon" />
         <title>{title}</title>
       </Helmet>
       <Box backgroundColor={"orange.100"} pt="3" pb="3">
