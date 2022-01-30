@@ -25,7 +25,7 @@ function App() {
   return (
     <>
       <Header title={"おもちゃ"} />
-      <Stack spacing={"5"} align={"center"}>
+      <Stack spacing={"5"} align={"center"} fontSize={"xl"}>
         <Select
           mt="3"
           placeholder="月を選択"

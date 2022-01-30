@@ -1,4 +1,4 @@
-import { Center } from "@chakra-ui/react"
+import { Box, Center, Heading } from "@chakra-ui/react"
 import Helmet from "react-helmet";
 import { Link } from "react-router-dom";
 
@@ -22,12 +22,16 @@ export const Header = (props) => {
         <link rel="shortcut icon" href=".images/favicon128.ico" type="image/x-icon" />
         <title>{title}</title>
       </Helmet>
-      <Center h={10} backgroundColor={"orange.100"}>
-        <Link to="/">
-          {year}年テレワーク提出物のおもちゃ
-        </Link>
-      </Center>
-      <Center>
+      <Box backgroundColor={"orange.100"} pt="3" pb="3">
+        <Center h="100%">
+          <Heading fontSize={{ base: "xl", md: "3xl" }}>
+            <Link to="/">
+              {year}年テレワーク提出物のおもちゃ
+            </Link>
+          </Heading>
+        </Center>
+      </Box>
+      <Center fontSize={{ base: "xl", md: "3xl" }}>
         <Link to="/about" >about</Link>
       </Center>
 

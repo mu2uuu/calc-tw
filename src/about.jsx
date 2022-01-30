@@ -1,4 +1,4 @@
-import { Box, Center, Link, Text } from "@chakra-ui/react"
+import { Box, Link, Text } from "@chakra-ui/react"
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { Header } from "./header"
 
@@ -6,9 +6,9 @@ export const About = () => {
   return (
     <>
       <Header title={"あばうと"} />
-      <Center>
+      <Box display={"flex"} justifyContent={"center"} alignItems={"center"} fontSize={"xl"}>
         <Box mt="3">
-          <Text>提出物書類用のおもちゃです。</Text>
+          <Text>提出物書類用のおもちゃです(おもろくないですが、、)</Text>
           <Text>ほんの少しだけ、提出物の作成が楽になる、かも、です。</Text>
           <Text>
             営業日は
@@ -28,7 +28,7 @@ export const About = () => {
             作成者の都合で無断で、閉鎖する可能性があること予めご了承下さい。<br />
           </Text>
         </Box>
-      </Center>
+      </Box>
     </>
   )
 }
