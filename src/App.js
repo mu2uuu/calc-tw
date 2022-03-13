@@ -5,7 +5,7 @@ import { Header } from "./header";
 
 function App() {
   // 営業日マップ
-  const bizDayArray = [19, 18, 23, 20, 19, 22, 20, 22, 21, 20, 20, 22];
+  const bizDayArray = [19, 18, 22, 20, 19, 22, 20, 22, 20, 20, 20, 22];
 
   // react-multi-date-picker
   const today = new Date();

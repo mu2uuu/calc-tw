@@ -7,15 +7,18 @@ export const About = () => {
     <>
       <Header title={"あばうと"} />
       <Box display={"flex"} justifyContent={"center"} alignItems={"center"} fontSize={"xl"}>
-        <Box mt="3" ml="3" mr="3">
+        <Box mt="3" ml="3">
           <Text>提出物書類用のおもちゃです(おもろくないですが、、)</Text>
           <Text>ほんの少しだけ、提出物の作成が楽になる、かも、です。</Text>
           <Text>
             営業日は
-            <Link href="https://timesles.com/ja/calendar/working/years/2022/"
+            <Link href="https://eigyoubi-toka.com/eigyoubi/"
               color="teal.500"
               isExternal>こちら<ExternalLinkIcon verticalAlign={"center"} /></Link>
             のサイトに準拠しておりますが、特例が入ったら反映させる予定です。
+          </Text>
+          <Text>
+            (2022年度版は1月を既に反映済み)
           </Text>
           <Text mt="3">
             コメントありましたら、フォーム用意したので
