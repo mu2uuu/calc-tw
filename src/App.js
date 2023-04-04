@@ -1,9 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Box, Stack, Select, Input } from "@chakra-ui/react";
 import DatePicker from "react-multi-date-picker";
-import { Box, Stack, Select } from "@chakra-ui/react";
 import { Header } from "./header";
+import { calcTw } from "./js/calc-tw";
 
 function App() {
+  const [twDay, setTwDay] = useState(0);
+  const [eigyoubi , setEigyoubi] = useState(0);
+  const [twRate, setTwRate] = useState(0);
+  const [dayList , setDayList] = useState([]);
+
+  const handleCalc = (event) => {
+    const { twDay, eigyoubi, twRate, dayList } = calcTw(event.target.value);
+    setTwDay(twDay);
+    setEigyoubi(eigyoubi);
+    setTwRate(twRate);
+    setDayList(dayList);
+  }
+
+  useEffect(() => {
+    const { twDay, eigyoubi, twRate, dayList } = calcTw('');
+    setTwDay(twDay);
+    setEigyoubi(eigyoubi);
+    setTwRate(twRate);
+    setDayList(dayList);
+  }, [])
+
   // 営業日マップ
   const bizDayArray = [19, 19, 22, 20, 20, 22, 20, 22, 20, 21, 20, 21];
 
@@ -55,15 +77,6 @@ function App() {
         <Box>
           {selectedMonth}月の営業日は{bizDay}日です
         </Box>
-        <Box
-          w={{ base: "sm", md: "2xl" }}
-          display={"flex"}
-          justifyContent={"center"}
-        >
-          以下の入力欄を押下するとカレンダーが表示されるので、
-          <br />
-          日付を選択して下さい。あとはコピペで。
-        </Box>
         <Box mt="3">
           <DatePicker
             sort={true}
@@ -76,6 +89,20 @@ function App() {
             }}
           />
         </Box>
+        <Box
+          w={{ base: "sm", md: "2xl" }}
+          display={"flex"}
+          justifyContent={"center"}
+        >
+          ↑の入力欄を押下するとカレンダーが表示されるので、
+          <br />
+          出社日と有給日を選択して下さい。
+          <br />
+          表示された文字列を↓に貼り付け
+        </Box>
+        <Input w="300px" onChange={(e) => handleCalc(e)} />
+        <p>TW日：{twDay}日 || 営業日：{eigyoubi}日 || TW率：{twRate}</p>
+        <p>TW日一覧：{dayList}</p>
       </Stack>
     </>
   );
