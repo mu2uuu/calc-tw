@@ -5,7 +5,7 @@ const calcTw = (param) => {
 
   // (!)手動設定値 : 有給 or 出社日
   var gotoOffice;
-  if(param === '') {
+  if (param === '') {
     gotoOffice = [];
   } else {
     var str = param.split(',');
@@ -23,18 +23,20 @@ const calcTw = (param) => {
   //https://eigyoubi-toka.com/eigyoubi/
 
   //祝日一覧（1月~12月の祝日を月ごとに配列化）
-  var LIST_1 = [];
-  var LIST_2 = [];
-  var LIST_3 = [21];
-  var LIST_4 = [];
-  var LIST_5 = [3, 4, 5];
-  var LIST_6 = [];
-  var LIST_7 = [17];
-  var LIST_8 = [11];
-  var LIST_9 = [18];
-  var LIST_10 = [9];
-  var LIST_11 = [3, 23];
-  var LIST_12 = [];
+  var lists = {
+    LIST_1: [],
+    LIST_2: [],
+    LIST_3: [21],
+    LIST_4: [],
+    LIST_5: [3, 4, 5],
+    LIST_6: [],
+    LIST_7: [17],
+    LIST_8: [11],
+    LIST_9: [18],
+    LIST_10: [9],
+    LIST_11: [3, 23],
+    LIST_12: []
+  };
 
   /////////////////////////////////
   //今年
@@ -49,7 +51,7 @@ const calcTw = (param) => {
   //先月.最終日
   var lastDay = new Date(YEAR, MONTH, 0).getDate();
   //先月.祝日
-  var holiday = eval('LIST_' + MONTH);
+  var holiday = lists['LIST_' + MONTH];
   //数列算出
   var setDay;
   var wDay;
@@ -84,31 +86,23 @@ const calcTw = (param) => {
     }
 
     //最後処理
-    if ((j + 1) == DayList.length) {
+    if ((j + 1) === DayList.length) {
       answer = answer + (DayList[j]);
       break;
     }
 
     //通常処理 (次の関係性を満たす場合はスキップ：n-1 ← n → n+1)
-    if ((DayList[j] - 1) == DayList[j - 1] && (DayList[j] + 1) == DayList[j + 1]) {
+    if ((DayList[j] - 1) === DayList[j - 1] && (DayList[j] + 1) === DayList[j + 1]) {
       continue;
     } else {
       answer = answer + (DayList[j]) + ',';
     }
   }
 
-  //ログ出力
   var twDay = (BUSINESS_DAY[MONTH - 1] - gotoOffice.length);
-  console.log(YEAR + '年' + MONTH + '月' + '\n'
-  + 'TW日: ' + twDay + ' || '
-  + '営業日: ' + BUSINESS_DAY[MONTH - 1] + ' || '
-  + 'TW率: ' + (((twDay / BUSINESS_DAY[MONTH - 1]) * 100).toFixed(1)) 
-  + '%' + '\n'
-  + answer);
-
   var eigyoubi = BUSINESS_DAY[MONTH - 1];
   var twRate = (((twDay / BUSINESS_DAY[MONTH - 1]) * 100).toFixed(1)) + '%';
   var dayList = DayList.join(',');
-  return {twDay, eigyoubi, twRate, dayList}
+  return { twDay, eigyoubi, twRate, dayList }
 }
 module.exports = { calcTw }
